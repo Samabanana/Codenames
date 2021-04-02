@@ -38,7 +38,7 @@ client.on('message', async msg => {
          * @return pong
          */
         if (msg.content == "ping") {
-            msg.channel.send("cn.ping");
+            msg.channel.send("pong!");
         }
     }
 });
