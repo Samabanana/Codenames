@@ -37,10 +37,53 @@ client.on('message', async msg => {
          * PING METHOD: mostly for debug
          * @return pong
          */
-        if (msg.content == "ping") {
-            msg.channel.send("pong!");
+
+        const substring = msg.content.split(); //Split the command into an array of args
+        const command = msg.content.slice(0,1); //Get the command
+
+        if(command == "make") { //Make the board
+            const boardSize = substring.slice(1, 2); // Get the number argument
+            msg.channel.send(printBoard(boardSIze)); //Print the board
+
+            
         }
+    
+
+
+        
     }
 });
+
+
+
+function printBoard(inputNumber) {
+    var fs = require("fs");
+
+    fs.readFile('standard.txt', 'utf8', function(err, data) {
+        if(err) {
+            return console.log(err);
+        }
+        var words = data.split(" "); // Store the words in an array
+        
+        const board;
+
+        for(const i = 0; i < inputNumber; i++) {
+            const index = Math.floor(Math.random() * inputNumber); //Get a random number = the amount of words in the text file
+            board.push(words.slice(index, index + 1)); // Get a random word
+
+        }
+
+        for(var word in board) {
+            return board.channel.send(word);  //Send the words
+        }
+
+    });
+
+
+}
+
+function customWord() {
+
+}
 
 client.login(process.env.DISCORD_TOKEN);
