@@ -8,7 +8,7 @@ const client = new Discord.Client();
 // The prefix for the bot
 const PREFIX = "cn.";
 
-// necessary constants
+// necessary constant
 const ACTIVE_GAMES = [];
 
 /*
@@ -28,7 +28,7 @@ client.on('ready', () => {
 
 // Listen for message
 client.on('message', async msg => {
-    if (msg.author.id == BOT_USER_ID) return;   // dont reply to yourself
+    if (msg.author.id == BOT_USER_ID) return;   // don't reply to yourself
     // Detect prefix
     if (msg.content.substr(0, 3) == PREFIX) {
         msg.content = msg.content.substr(3);    // trim message
